@@ -1,0 +1,86 @@
+@use "@/assets/scss/abstracts/variables" as *;
+@use "sass:color";
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: $light-gray;
+
+  h1 {
+    font-size: 2.2rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: $text-color;
+  }
+
+  .btn-primary {
+    background-color: $primary-color;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+}
+
+.perkara {
+  padding: 2rem;
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-grid-horizontal {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $primary-color;
+      border-radius: 10px;
+    }
+  }
+}
+
+.about {
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $secondary-color;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: $text-color;
+  }
+
+  .fungsi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}

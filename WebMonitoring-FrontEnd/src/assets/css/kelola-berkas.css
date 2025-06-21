@@ -1,0 +1,341 @@
+    .form-container {
+    background: linear-gradient(to right bottom, #f3e5f5, #e3f2fd, #fce4ec);
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .form-row {
+    display: flex;
+    gap: 16px;
+    }
+
+    .form-row .form-group {
+    flex: 1;
+    }
+
+    .form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #444;
+    }
+
+    .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    }
+
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .form-group.full {
+    grid-column: span 2;
+    }
+
+    .form-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    }
+
+    button {
+    background: #4a90e2;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    }
+
+    button:hover {
+    background: #357abd;
+    }
+    button.close-button {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 22px;
+    color: #888;
+    cursor: pointer;
+    }
+
+    button.close-button:hover {
+    color: #333;
+    }
+
+    .btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+    background: #1d4ed8;
+    }
+
+    .btn-danger {
+    background: #dc2626;
+    color: white;
+    padding: 10px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }
+
+    .btn-danger:hover {
+    background: #b91c1c;
+    }
+
+    .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* latar blur gelap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    }
+
+    .modal-content {
+    background-color: white;
+    padding: 24px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    }
+
+    .modal-content table td:first-child {
+    font-weight: 600;
+    color: #333;
+    width: 40%;
+    }
+
+    .page-container {
+    padding: 20px;
+    position: relative;
+    }
+
+    .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    }
+
+    .modal-wrapper {
+    max-height: 90vh;
+    width: 100%;
+    max-width: 600px;
+    overflow-y: auto;
+    }
+
+    .modal-content {
+    background-color: white;
+    padding: 24px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    }
+
+    .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #dc2626;
+    cursor: pointer;
+    }
+
+    .modal-close:hover {
+    color: #b91c1c;
+    }
+    .table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    }
+
+.btn-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.input-search {
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 260px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.daftar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.daftar-table th{
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #333;
+  max-width: 220px;
+  vertical-align: top;
+}
+.daftar-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 220px;
+  vertical-align: top;
+}
+
+.daftar-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-small {
+  font-size: 13px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.bg-green {
+  background-color: #4CAF50;
+}
+
+.bg-green:hover {
+  background-color: #45a049;
+}
+
+.bg-yellow {
+  background-color: #ffc107;
+  color: black;
+}
+
+.bg-yellow:hover {
+  background-color: #e0a800;
+}
+
+.bg-red {
+  background-color: #f44336;
+}
+
+.bg-red:hover {
+  background-color: #d32f2f;
+}
+
+.btn-page {
+    padding: 6px 12px;
+    background: #3272f2;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    }
+
+    .btn-page:hover {
+    background-color: #2b9209;
+    }
+
+    .btn-page:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    }
+
+    .active-page {
+    background-color: #3ac30c;
+    color: white;
+    }
+
+    @keyframes fadeIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    }
+
+    .scrollable {
+    max-height: 90vh;
+    overflow-y: auto;
+    }
