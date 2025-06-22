@@ -11,29 +11,22 @@ class DetailKategoriSeeder extends Seeder
 {
     public function run()
     {
-        // Ambil semua kategori yang memiliki detail_kategori_id null
-        $kategoriList = DB::table('kategori')->whereNull('detail_kategori_id')->get();
+        // Ambil semua data perkara yang belum memiliki detail_kategori
+        $perkaraList = DB::table('perkara')->whereNull('detail_kategori_id')->get();
 
-        foreach ($kategoriList as $kategori) {
+        foreach ($perkaraList as $perkara) {
+            // Buat detail_kategori baru
             $detailId = DB::table('detail_kategori')->insertGetId([
-                'tanggal_diterima_spdp' => $kategori->kode_kategori === 'P-16' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'tanggal_berkas_tahap_1' => $kategori->kode_kategori === 'BT1' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'tanggal_p18' => $kategori->kode_kategori === 'P-18' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'tanggal_p19' => $kategori->kode_kategori === 'P-19' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'tanggal_berkas_kembali' => $kategori->kode_kategori === 'BT1K' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'tanggal_p21' => $kategori->kode_kategori === 'P-21' ? Carbon::now()->subDays(rand(1, 20)) : null,
-                'nomor_berkas_perkara' => $kategori->kode_kategori === 'BT1' ? 'BRK-' . rand(100, 999) : null,
-                'nomor_pengantar_berkas' => $kategori->kode_kategori === 'BT1' ? 'PNTR-' . rand(100, 999) : null,
-                'nomor_pengantar_berkas_kembali' => $kategori->kode_kategori === 'BT1K' ? 'KMBK-' . rand(100, 999) : null,
-                'file_pendukung' => in_array($kategori->kode_kategori, ['P-18', 'P-19', 'P-21']) ? 'surat_pendukung/dummy.pdf' : null,
+                'tanggal_diterima_spdp' => $perkara->tanggal_diterima_spdp,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
 
-            // Update kategori untuk menautkan detail_kategori
-            DB::table('kategori')
-                ->where('id', $kategori->id)
-                ->update(['detail_kategori_id' => $detailId]);
+            // Update perkara dengan detail_kategori_id
+            DB::table('perkara')->where('id', $perkara->id)->update([
+                'detail_kategori_id' => $detailId,
+                'updated_at' => now(),
+            ]);
         }
     }
 }

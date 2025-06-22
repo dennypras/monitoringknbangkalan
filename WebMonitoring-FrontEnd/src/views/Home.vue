@@ -58,12 +58,11 @@
       <h3 class="card-nama">{{ perkara.nama_tersangka }}</h3>
 
       <p>
-        <strong>Kode Kategori:</strong>
-        <span :class="['kode-kategori-badge', getKodeKategoriClass(perkara.kategori?.kode_kategori)]">
-          {{ perkara.kategori?.kode_kategori || '-' }}
+        <strong>Status Kategori:</strong>
+        <span :class="['kode-kategori-badge', getKodeKategoriClass(perkara.kategori?.nama_kategori)]">
+          {{ perkara.kategori?.nama_kategori || '-' }}
         </span>
       </p>
-
       <p><strong>No SPDP:</strong> {{ perkara.nomor_spdp }}</p>
       <p><strong>Tgl SPDP:</strong> {{ formatDate(perkara.tanggal_spdp) }}</p>
       <p><strong>Pasal:</strong> {{ perkara.pasal }}</p>
@@ -95,7 +94,7 @@
           <tr><td class="font-semibold">Nomor SPDP</td><td>{{ selectedBerkas.nomor_spdp }}</td></tr>
           <tr><td class="font-semibold">Nama JPU</td><td>{{ selectedBerkas.nama_jpu }}</td></tr>
           <tr><td class="font-semibold">Tanggal SPDP</td><td>{{ formatDate(selectedBerkas.tanggal_spdp) }}</td></tr>
-          <tr><td class="font-semibold">Tanggal Diterima SPDP</td><td>{{ formatDate(selectedBerkas.tanggal_diterima_spdp) }}</td></tr>
+          <tr><td class="font-semibold">Tanggal Diterima SPDP</td><td>{{ formatDate(selectedBerkas.detail_kategori?.tanggal_diterima_spdp) }}</td></tr>
           <tr><td class="font-semibold">Pasal</td><td>{{ selectedBerkas.pasal }}</td></tr>
           <tr><td class="font-semibold">Tempat Kejadian</td><td>{{ selectedBerkas.tempat_kejadian }}</td></tr>
           <tr><td class="font-semibold">Instansi Penyidik</td><td>{{ selectedBerkas.instansi_penyidik }}</td></tr>

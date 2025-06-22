@@ -5,7 +5,6 @@
       <span class="brand">Web Monitoring</span>
     </div>
     <div class="navbar-right">
-      <button class="icon" @click="$emit('toggle-theme')">🌓</button>
       <button class="icon" @click="$emit('logout')">Logout</button>
     </div>
   </header>

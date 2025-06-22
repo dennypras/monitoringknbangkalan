@@ -15,9 +15,6 @@
       <ul :class="['navbar-links', { 'show': menuOpen }]">
         <li><RouterLink to="/">Home</RouterLink></li>
         <li><RouterLink to="/login">Login</RouterLink></li>
-        <li>
-          <DarkModeToggle :is-dark="isDark" @toggle="toggleDarkMode" />
-        </li>
       </ul>
     </div>
   </nav>
@@ -26,7 +23,6 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import DarkModeToggle from './DarkModeToggle.vue'
 
 const menuOpen = ref(false)
 const isDark = ref(false)
@@ -35,9 +31,6 @@ const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
 }
 
-const toggleDarkMode = () => {
-  isDark.value = !isDark.value
-}
 </script>
 
 <style scoped lang="scss">

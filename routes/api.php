@@ -13,6 +13,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/berkas-perkara', [PerkaraController::class, 'store']);
     Route::put('/berkas-perkara/{id}', [PerkaraController::class, 'updateKategori']);
+    Route::post('/berkas-perkara/{id}', [PerkaraController::class, 'updateKategori']);
     Route::delete('/berkas-perkara/{id}', [PerkaraController::class, 'destroy']);
 });
 

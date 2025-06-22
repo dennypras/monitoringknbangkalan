@@ -1,3 +1,6 @@
+input[type="date"] {
+  min-width: 160px;
+}
 h2{
 align-items: center;
   text-align: center;
@@ -6,8 +9,8 @@ align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
-  padding: 24px;
+  gap: 36px;
+  padding: 36px;
 }
 
 .stat-card {
