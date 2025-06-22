@@ -3,7 +3,6 @@
     <!-- Tombol Tambah -->
     <div class="flex justify-between items-center mb-4">
       <button @click="showForm = true; resetForm()" class="btn-primary">+ Tambah Berkas</button>
-      <button v-if="showForm" @click="showForm = false" class="btn-danger">×</button>
     </div>
 
     <!-- Modal Tambah Berkas -->
@@ -109,7 +108,7 @@
     <div v-if="showUpdateForm" class="modal-overlay">
   <div class="modal-wrapper">
     <div class="modal-content scrollable relative">
-      <button class="modal-close" @click="showUpdateForm = false">×</button>
+      <button class="modal-close" @click="showUpdateForm = false">Tutup</button>
       <h2 class="form-title mb-4">Update Berkas</h2>
 
       <form @submit.prevent="submitUpdate" class="form-grid">
@@ -218,7 +217,7 @@
     <div v-if="showDetail" class="modal-overlay">
       <div class="modal-wrapper">
         <div class="modal-content scrollable relative">
-          <button class="modal-close" @click="showDetail = false">×</button>
+          <button class="modal-close" @click="showDetail = false">Tutup</button>
           <h2 class="form-title mb-4">Detail Berkas</h2>
           <table class="w-full text-sm table-auto border">
             <tbody>
@@ -340,6 +339,7 @@ const form = ref({
   nama_tersangka: ''
 })
 
+const isSubmitting = ref(false)
 const showForm = ref(false)
 const showUpdateForm = ref(false)
 const showDetail = ref(false)

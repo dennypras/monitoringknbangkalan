@@ -192,18 +192,21 @@
 
     .modal-close {
     position: absolute;
-    top: 12px;
+    padding: 8px;
+    top: 16px;
     right: 16px;
     background: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
-    color: #dc2626;
+    color: white;
+    background-color: #b91c1c;
     cursor: pointer;
+    border: solid #b91c1c 1px;
     }
 
     .modal-close:hover {
-    color: #b91c1c;
+    color: white;
     }
     .table-container {
     overflow-x: auto;
@@ -239,8 +242,8 @@
   padding: 10px 12px;
   border-bottom: 1px solid #eee;
   white-space: normal;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  /* overflow-wrap: break-word;
+  word-break: break-word; */
   text-align: center;
   background-color: #f9fafb;
   font-weight: 600;
