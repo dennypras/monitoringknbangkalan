@@ -190,6 +190,20 @@
     animation: fadeIn 0.3s ease;
     }
 
+    .text-center {
+  text-align: center;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.text-gray-500 {
+  color: #6b7280;
+}
+.text-gray-600 {
+  color: #4b5563;
+}
+
     .modal-close {
     position: absolute;
     padding: 8px;

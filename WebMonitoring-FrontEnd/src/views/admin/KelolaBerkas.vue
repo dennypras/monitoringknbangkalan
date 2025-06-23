@@ -63,7 +63,13 @@
       <input v-model="searchQuery" type="text" class="input-search" placeholder="Cari Nomor SPDP / Nama JPU / Tersangka..."/>
     </div>
     <div class="table-container">
-      <table class="daftar-table">
+      <div v-if="loading" class="text-center text-gray-600 py-6">⏳ Memuat data berkas...</div>
+
+      <div v-else-if="paginatedBerkas.length === 0" class="text-center text-gray-500 py-6">
+        📄 Data tidak ditemukan.
+      </div>
+
+      <table v-else class="daftar-table">
         <thead>
           <tr>
             <th>No</th>
@@ -79,7 +85,7 @@
         <tbody>
           <tr v-for="(berkas, index) in paginatedBerkas" :key="index">
             <td>{{ (currentPage - 1) * perPage + index + 1 }}</td>
-            <td>{{ berkas.nomor_spdp}}</td>
+            <td>{{ berkas.nomor_spdp }}</td>
             <td>{{ berkas.kategori.nama_kategori }}</td>
             <td>{{ berkas.nama_tersangka }}</td>
             <td>{{ berkas.nama_jpu }}</td>
@@ -95,7 +101,8 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div>  
+
 
     <!-- Paginasi -->
     <div class="mt-4 flex gap-2 justify-center">
@@ -339,7 +346,7 @@ const form = ref({
   nama_tersangka: ''
 })
 
-const isSubmitting = ref(false)
+const loading = ref(false)
 const showForm = ref(false)
 const showUpdateForm = ref(false)
 const showDetail = ref(false)
@@ -430,13 +437,16 @@ const prevPage = () => { if (currentPage.value > 1) currentPage.value-- }
 const nextPage = () => { if (currentPage.value < totalPages.value) currentPage.value++ }
 
 async function fetchData() {
+  loading.value = true
   try {
     const response = await axios.get('http://localhost:8000/api/berkas-perkara')
-    console.log('✅ Data diterima:', response.data) // Debug
+    console.log('✅ Data diterima:', response.data)
     berkasList.value = Array.isArray(response.data) ? response.data : []
   } catch (err) {
     console.error('❌ Gagal memuat data perkara:', err)
     berkasList.value = []
+  } finally {
+    loading.value = false
   }
 }
 
